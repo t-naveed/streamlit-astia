@@ -141,7 +141,7 @@ with st.container():
             labels = ['Link Sent', 'Clicked Link', 'Entered Credential']
             tags = ['Executive Level', 'Management Level', 'General Employee']
             values = [executive_emp[0], management_emp[0], general_emp[0]]
-            fig1 = go.Figure([go.Bar(x=labels, y=[125, 70, 50])])
+            fig1 = go.Figure([go.Bar(x=labels, y=[sent_link_count[0], clicked_link_count[0], entered_cred_count[0]])])
             fig2 = go.Figure(data=[go.Pie(labels=tags, values=values, pull=[0, 0, 0.2, 0])])
             with left_column:
                 st.write(fig1)
