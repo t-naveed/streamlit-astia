@@ -1,0 +1,17 @@
+*{
+ font-family: monospace;
+}
+
+a.css-1dgmtll.e16nr0p31 {
+    display: none;
+}
+.css-15zrgzn {
+
+    display: none;
+}
+.c
+
+/* Hide Streamlit Branding*/
+#MainMenu {visibility: hidden;}
+footer {visibility: hidden;}
+header {visibility: hidden;}
