@@ -102,33 +102,33 @@ with st.container():
             st.subheader("Preview of Targeted Data")
         with left_column:
             st.subheader("Set Your Target")
-            try:
-                uploaded_file = st.file_uploader("Select a CSV file contains employees name and phone number")
-                if uploaded_file is not None:
-                    data = pd.read_csv(uploaded_file)
+            #try:
+            uploaded_file = st.file_uploader("Select a CSV file contains employees name and phone number")
+            if uploaded_file is not None:
+                data = pd.read_csv(uploaded_file)
                         #data.to_html("Table.htm")
-                    html_file = data.to_html()
-                    try:
-                        number_column = data['PhoneNumber'].tolist()
-                        with right_column:
-                            st.write(html_file, unsafe_allow_html=True)
-                            with left_column:
-                                st.success(
+                html_file = data.to_html()
+                #try:
+                number_column = data['PhoneNumber'].tolist()
+                with right_column:
+                    st.write(html_file, unsafe_allow_html=True)
+                    with left_column:
+                        st.success(
                                         "Data Uploaded Successfully.\nHit the Launch Attack button. Go to campaign tab to see the "
                                         "result.")
-                                if st.button("Launch Attack", key=None, help=None, on_click=None):
-                                    try:
-                                        send_message(message)
-                                    except:
-                                        st.error("This Number is not verified. Twilio Trial Account Limitation!")
-                    except:
-                        st.error("Number Column's header should be \'PhoneNumber\'")
-                else:
-                    st.warning("Type Sensetive: Must upload a CSV")
-                st.write("##")
-                st.write("##")
-            except:
-                st.error("Type Sensetive: Must upload a CSV")
+                        if st.button("Launch Attack", key=None, help=None, on_click=None):
+                                    #try:
+                                send_message(message)
+                                    #except:
+                                        #st.error("This Number is not verified. Twilio Trial Account Limitation!")
+                    #except:
+                        #st.error("Number Column's header should be \'PhoneNumber\'")
+            else:
+                st.warning("Type Sensetive: Must upload a CSV")
+            st.write("##")
+            st.write("##")
+            #except:
+                #st.error("Type Sensetive: Must upload a CSV")
     with tab3:
         st.header("Dashboard")
         uploaded_file = st.file_uploader("Upload the file sent via email to see the analytics!")
