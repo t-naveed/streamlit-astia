@@ -16,14 +16,14 @@ local_css("styles/mystyle.css")
 
 
 def send_message(str):
-    account_sid = st.secrets["account_sid"]
-    auth_token = st.secrets["auth_token"]
+    account_sid = st.secrets['account_sid']
+    auth_token = st.secrets['auth_token']
     client = Client(account_sid, auth_token)
     for i in range(len(number_column)):
         st.write(number_column[i])
         message = client.messages.create(
             body=str,
-            from_= st.secrets["twilio_number"],
+            from_= st.secrets['twilio_number'],
             to=number_column[i]
         )
         st.success(f"Sent to {i + 1} device")
